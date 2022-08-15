@@ -17,13 +17,13 @@ public class Q3_1 {
 
         int i = 0, j = 0, k = 0;
         while (j < arr1.length && k < arr2.length) {
-            if (arr1[j] < arr2[k]) arr3[i++] = arr1[j++];
+            if (arr1[j] <= arr2[k]) arr3[i++] = arr1[j++];
             else arr3[i++] = arr2[k++];
         }
         if (j >= arr1.length) {
             while (k < arr2.length) arr3[i++] = arr2[k++];
         }
-        if (k >= arr2.length) {
+        else if (k >= arr2.length) {
             while (j < arr1.length) arr3[i++] = arr1[k++];
         }
 
