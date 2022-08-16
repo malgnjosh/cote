@@ -8,7 +8,7 @@ public class Q1_9 {
         for(int i = s.length() - 1; i >= 0; i--) {
             char next = s.charAt(i);
             if (48 <= next && next <= 57 ) {
-                if(next != 0) result += digit * Integer.parseInt(Character.toString(next));
+                if(next != '0') result += digit * Integer.parseInt(Character.toString(next));
                 digit *= 10;
             }
         }
