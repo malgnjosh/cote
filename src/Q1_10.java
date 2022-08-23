@@ -1,24 +1,23 @@
 import java.util.Scanner;
 
 public class Q1_10 {
-    public int[] solve() {
+    public void solve() {
         Scanner in = new Scanner(System.in);
-        String s = in.next();
-        String c = in.next();
-        int[] result = new int[s.length()];
+        String input1 = in.next();
+        String input2 = in.next();
+        int[] result = new int[input1.length()];
 
-        for(int i = 0; i < s.length(); i++) {
-            result[i] = 100;
+        for(int i = 0; i < result.length; i++) {
+            result[i] = -1;
         }
 
-        for(int i = 0; i < s.length(); i++) {
-            if(s.charAt(i) == c.charAt(0)) {
-                result[i] = 0;
-                for(int j = 0; j < s.length(); j++) {
-                    if(result[j] > Math.abs(i - j)) result[j] = Math.abs(i - j);
-                }
+        for(int i = 0; i < input1.length(); i++) {
+            char next = input1.charAt(i);
+            if(next == input2.charAt(0)) result[i] = 0;
+            else {
+
             }
         }
-        return result;
+
     }
 }
