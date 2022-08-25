@@ -8,20 +8,13 @@ public class Q2_9 {
         int max = 0;
         int sumRow = 0, sumCol = 0, sumDia = 0, k = 0;
         for(int i = 0; i < N; i++) {
+            sumRow = sumCol = 0;
             for(int j = 0; j < N; j++) {
                 board[i][j] = sc.nextInt();
                 sumRow += board[i][j];
-            }
+                sumCol += board[j][i];            }
             if(sumRow > max) max = sumRow;
-            sumRow = 0;
-        }
-
-        for(int j = 0; j < N; j++) {
-            for(int i = 0; i < N; i++) {
-                sumCol += board[i][j];
-            }
             if(sumCol > max) max = sumCol;
-            sumCol = 0;
         }
 
         int i = 0, j = 0;
