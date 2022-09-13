@@ -12,25 +12,22 @@ public class Q2_9 {
             for(int j = 0; j < N; j++) {
                 board[i][j] = sc.nextInt();
                 sumRow += board[i][j];
-                sumCol += board[j][i];            }
+                sumCol += board[j][i];
+            }
             if(sumRow > max) max = sumRow;
             if(sumCol > max) max = sumCol;
         }
 
         int i = 0, j = 0;
         while(i < N && j < N) {
-            sumDia += board[i][j];
-            i++;
-            j++;
+            sumDia += board[i++][j++];
         }
         if(sumDia > max) max = sumDia;
 
         sumDia = 0;
         int ii = N - 1, jj = 0;
         while(ii >= 0 && jj < N) {
-            sumDia += board[ii][jj];
-            ii--;
-            jj++;
+            sumDia += board[ii--][jj++];
         }
         if(sumDia > max) max = sumDia;
 

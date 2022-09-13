@@ -11,9 +11,9 @@ public class Q2_11 {
                 board[i][j] = sc.nextInt();
             }
         }
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                board[i][j] = sc.nextInt();
+        for (int i = 0; i < N; i++) { // 학생
+            for (int j = 0; j < N; j++) { // 학년
+                //while()
             }
         }
 
