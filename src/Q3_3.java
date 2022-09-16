@@ -1,10 +1,10 @@
 import java.util.*;
 public class Q3_3 {
-    Scanner in = new Scanner(System.in);
-    int N = in.nextInt();
-    int K = in.nextInt();
-
     public int solve() {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        int K = in.nextInt();
+
         int[] arr = new int[N];
         for(int i = 0; i < N; i++) {
             arr[i] = in.nextInt();

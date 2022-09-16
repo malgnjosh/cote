@@ -1,7 +1,8 @@
 import java.util.*;
 
 public class Q4_2 {
-
+    String result = "Yes";
+    int resultInt = 0;
     public String solve() {
         Scanner sc = new Scanner(System.in);
         String s1 = sc.next();
@@ -21,12 +22,11 @@ public class Q4_2 {
             hm2.put(next2, cnt2 + 1);
         }
 
-        Result r = new Result();
         hm1.forEach((key, value)->{
-            if(value != hm2.get(key)) r.result = "NO";
+            if(value != hm2.get(key)) result = "NO";
         });
 
-        return r.result;
+        return result;
     }
 }
 

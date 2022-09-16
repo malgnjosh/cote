@@ -12,6 +12,8 @@ public class Q3_2 {
         for (int i = 0; i < B.length; i++) {
             B[i] = in.nextInt();
         }
+
+
         ArrayList<Integer> result = new ArrayList<Integer>();
         Arrays.sort(A);
         Arrays.sort(B);

@@ -14,7 +14,7 @@ public class Q3_1 {
         }
 
         int[] arr3 = new int[arr1Size + arr2Size];
-
+        //System.arrayCopy()
         int i = 0, j = 0, k = 0;
         while (j < arr1.length && k < arr2.length) {
             if (arr1[j] <= arr2[k]) arr3[i++] = arr1[j++];
