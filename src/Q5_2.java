@@ -15,6 +15,8 @@ public class Q5_2 {
                 while('(' != stk.pop());
             }
         }
+
+        // 뒤집어서 출력
         while(!stk.isEmpty()) {
             resultStk.push(stk.pop());
         }

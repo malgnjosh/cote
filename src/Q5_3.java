@@ -44,7 +44,6 @@ public class Q5_3 {
                 count += 2;
                 stk[0].pop();
             }
-
             else stk[0].push(picked);
         }
         System.out.println(count);

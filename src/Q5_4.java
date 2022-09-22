@@ -8,9 +8,9 @@ public class Q5_4 {
         Stack<Integer> stk = new Stack<>();
         char op = '\0';
 
-        for(int i = 0; i < str.length(); i++) {
+        for(int i = 0; i < str.length(); i++) { // for( x : str.toCharArray)
             char next = str.charAt(i);
-            if(next >= 48 && next <= 57) stk.push(next - '0');
+            if(next >= 48 && next <= 57) stk.push(next - '0'); // if(Character.isDigit()) Character.getNumericValue()
             else {
                 op = next;
                 int op1 = stk.pop();
