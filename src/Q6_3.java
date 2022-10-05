@@ -13,8 +13,11 @@ class Q6_3 extends Solution {
                         swap(arr, tgt, j);
                         tgt--;
                     }
-
                 }
+                for(int a : arr) {
+                    System.out.print(a + " ");
+                }
+                System.out.println();
             }
 
             for(int a : arr) {

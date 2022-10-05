@@ -11,4 +11,9 @@ class Solution {
         arr[idx1] = arr[idx2];
         arr[idx2] = temp;
     }
+    public void swap(Object[] arr, int idx1, int idx2) {
+        Object temp = arr[idx1];
+        arr[idx1] = arr[idx2];
+        arr[idx2] = temp;
+    }
 }
