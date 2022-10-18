@@ -19,7 +19,7 @@ class Q6_8 extends Solution{
         if(x == arr[mid]) return mid;
         else if(x > arr[mid]) return binarySearch(arr, mid + 1, last, x);
         else if(x < arr[mid]) return binarySearch(arr, first, mid, x);
-        return 0;
+        return -1;
     }
 
     public int iBinarySearch(int[] arr, int first, int last, int x) {

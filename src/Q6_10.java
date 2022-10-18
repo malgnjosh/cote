@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class Q6_10 extends Solution{
     public void solve() {
@@ -23,11 +24,14 @@ public class Q6_10 extends Solution{
             for(int i = 3; i <= c; i++) {
                 for(int j = 1; j < spot.length - 1; j++) {
                     int temp = spot[j]; // 2 4 8
+                    Iterator<Integer> it = hs.iterator();
+                    while(it.hasNext()) {
+                        int gap = Math.abs(temp - it.next());
 
+                    }
                 }
             }
 
-            max = realMax;
         }
 
         return max;

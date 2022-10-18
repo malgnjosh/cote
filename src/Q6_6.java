@@ -15,4 +15,5 @@ class Q6_6 extends Solution {
 
         System.out.println((i + 1) + " " + (j + 1));
     }
+
 }
