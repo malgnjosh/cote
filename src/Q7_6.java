@@ -1,41 +1,27 @@
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
-public class Q7_6 extends Solution{
-    public void solve() {
+public class Q7_6{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
-
-//        int V = 1; // 시작 정점
-//        int[] visited = new int[N + 1];
-//        int[][] graph = new int[N + 1][N + 1];
-//
-//        for(int i = 1; i < N + 1; i++) {
-//            for(int j = 1; j < N + 1; j++) {
-//                if(i == j) graph[i][j] = 0;
-//                else graph[i][j] = 1;
-//            }
-//        }
-//
-//        for(int i = 1; i < N + 1; i++) {
-//            for(int j = 1; j < N + 1; j++) {
-//                System.out.print(graph[i][j]);
-//            }
-//            System.out.println();
-//        }
-//
-//
-//        Queue<Integer> q = new LinkedList<Integer>();
-//        q.add(V);
-//        while(!q.isEmpty()) bfs(q, graph, visited);
-
+        ArrayList<Integer> list = new ArrayList<>();
+        subSet(list,1, N);
     }
-    public void subSet(int n, int N) {
-        if(n == 1) {
-            System.out.println(N);
+    public static void subSet(ArrayList<Integer> list, int s, int N) {
+
+        if(s == N + 1) {
+            for(int i = 0; i < list.size(); i++) {
+                System.out.print(list.get(i) + " ");
+            }
+            System.out.println();
             return;
         }
 
-        subSet(n - 1, N);
-    }
+        list.add(s);
+        subSet(list,s + 1, N);
 
+        list.remove(list.lastIndexOf(s));
+        subSet(list,s + 1, N);
+
+    }
 }

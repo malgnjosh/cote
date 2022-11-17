@@ -65,7 +65,7 @@ public class Q7_5 {
         q.add(root);
         while(!q.isEmpty()) {
             TreeNode temp = q.remove();
-            if (temp != null) {
+            if(temp != null) {
                 System.out.print(temp.getData() + " ");
                 if(temp.getLeftChild() == null || temp.getRightChild() == null) continue;
                 q.add(temp.getLeftChild());
