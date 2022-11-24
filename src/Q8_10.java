@@ -3,16 +3,13 @@ import java.util.*;
 public class Q8_10 {
     public static final int MAX = 7;
     public static int result = 0;
+    public static CoordinateXY pos;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int[][] board = new int[MAX + 1][MAX + 1];
-        int[][] origin = new int[MAX + 1][MAX + 1];
-        //arrayCopy(board, origin);
 
-        int[] pos = new int[2];
-        pos[0] = 1;
-        pos[1] = 1;
+        pos = new CoordinateXY(1, 1);
 
         for(int i = 1; i < MAX + 1; i++) {
             board[i][0] = 2; // 벽
@@ -36,21 +33,20 @@ public class Q8_10 {
         System.out.println(result);
     }
 
-    public static boolean findPath(int[][] board, int[] pos) {
-        System.out.println("좌표:" + pos[0] + "," + pos[1]);
+    public static boolean findPath(int[][] board, CoordinateXY pos) {
+        int[][] temp = new int[MAX + 1][MAX + 1];
+        arrayCopy(board, temp);
 
         int cnt = 0;
-        if(pos[0] == 7 && pos[1] == 7) {
+        if(pos.getX() == 7 && pos.getY() == 7) {
             result++;
             return true;
         }
 
-        if(!moveRight(board, pos)) cnt++;
-        if(!moveLeft(board, pos)) cnt++;
-        if(!moveUp(board, pos)) cnt++;
-        if(!moveDown(board, pos)) cnt++;
+        for(int i = 0; i < 4; i++) {
 
-        if(cnt == 4) moveBack(board, pos);
+            if(searchNext(board, pos))
+        }
         return false;
     }
 
@@ -68,66 +64,62 @@ public class Q8_10 {
 
         return ret;
     }
-    public static boolean moveDown(int[][] board, int[] pos) {
-        int[] temp = new int[2];
-        System.arraycopy(pos, 0, temp, 0, pos.length);
-
-        int next = pos[0] + 1;
-        if(next <= MAX && board[next][pos[1]] == 0 ) {
-            board[pos[0]][pos[1]] = -1; // 현재위치
-            pos[0]++; // 이동
-            if(findPath(board, pos)) return false;
-            System.arraycopy(temp, 0, pos, 0, temp.length); // 원위치
-            return true;
+    public static boolean moveNext(int[][] board, CoordinateXY from, String direction) {
+        CoordinateXY to;
+        switch(direction) {
+            case "left": to = new CoordinateXY(from.getY() - 1, from.getX());
+            case "right": to = new CoordinateXY(from.getY() + 1, from.getX());
+            case "up": to = new CoordinateXY(from.getY(), from.getX() - 1);
+            case "down": to = new CoordinateXY(from.getY(), from.getX() + 1);
         }
-        return false;
+
+
+        if(searchNext(board, to)
     }
-    public static boolean moveUp(int[][] board, int[] pos) {
-        int[] temp = new int[2];
-        System.arraycopy(pos, 0, temp, 0, pos.length);
-
-        int next = pos[0] - 1;
-        if(next <= MAX && board[next][pos[1]] == 0) {
-            board[pos[0]][pos[1]] = -1;
-            pos[0]--;
-            if(findPath(board, pos)) return false;
-            System.arraycopy(temp, 0, pos, 0, temp.length);
-            return true;
+    public static boolean searchNext(int[][] board, CoordinateXY from, String direction) {
+        CoordinateXY to;
+        switch(direction) {
+            case "left": to = new CoordinateXY(from.getY() - 1, from.getX());
+            case "right": to = new CoordinateXY(from.getY() + 1, from.getX());
+            case "up": to = new CoordinateXY(from.getY(), from.getX() - 1);
+            case "down": to = new CoordinateXY(from.getY(), from.getX() + 1);
         }
-        return false;
-    }
-    public static boolean moveRight(int[][] board, int[] pos) {
-        int[] temp = new int[2];
-        System.arraycopy(pos, 0, temp, 0, pos.length);
 
-        int next = pos[1] + 1;
-        if(next <= MAX && board[pos[0]][next] == 0) {
-            board[pos[0]][pos[1]] = -1;
-            pos[1]++;
-            if(findPath(board, pos)) return false;
-            System.arraycopy(temp, 0, pos, 0, temp.length);
-            return true;
-        }
-        return false;
-    }
-    public static boolean moveLeft(int[][] board, int[] pos) {
-        int[] temp = new int[2];
-        System.arraycopy(pos, 0, temp, 0, pos.length);
-
-        int next = pos[1] - 1;
-        if(next <= MAX && board[pos[0]][next] == 0) {
-            board[pos[0]][pos[1]] = -1;
-            pos[1]--;
-            if(findPath(board, pos)) return false;
-            System.arraycopy(temp, 0, pos, 0, temp.length);
-            return true;
-        }
-        return false;
+        return to.getX() <= MAX && to.getY() <= MAX && board[to.getY()][to.getX()] == 0;
     }
 
-//    public static void arrayCopy(int[][] A, int[][] B) {
-//        for (int i = 0; i < A.length; i++) {
-//            System.arraycopy(A[i], 0, B[i], 0, A[i].length);
-//        }
-//    }
+    public static void arrayCopy(int[][] A, int[][] B) {
+        for (int i = 0; i < A.length; i++) {
+            System.arraycopy(A[i], 0, B[i], 0, A[i].length);
+        }
+    }
+}
+
+class CoordinateXY {
+    private int x, y;
+    CoordinateXY(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void setXY(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 }
