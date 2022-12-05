@@ -22,8 +22,8 @@ public class Q8_5 {
 
             System.out.print("cnt " + cnt + "remainder " + remainder + " | ");
         }
-        if(remainder > 0) {
-            perm(arr, N, M);
+        if(remainder > 0) { // 나누어떨어지지 않을때
+            //perm(arr, N, M);
         }
 
         System.out.println(cnt);
